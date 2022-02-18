@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./my-style.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Konstruct template</title>
+</head>
+<body>
+    <div id="desktop">
+        <header class="header">
+            <div class="presents">
+               <div class="container">
+                    <a href="#" class="presents__logo">
+                        <img src="./images/projeco-logo.svg" alt="white logo">
+                    </a>
+                    <div>
+                        <h1>{{ title }}</h1>
+                        <div class="header-description">{{titleText}}</div>
+                    </div>
+                    <div>
+                        <p>{{downText}}</p>
+                    </div>
+               </div>
+            </div>
+            
+                
+            <nav class="header__nav">
+                <div class="container nav-container">
+                    <a href="#" class="nav__logo">
+                        <img src="./images/projeco-logo-black.svg" alt="">
+                    </a>
+                    <ul class="header__nav_list">
+                        <li class="header__nav_item" v-for="item of list">
+                            <a href="#" class="list__link">{{item}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+        </header> 
+        <main class="main">
+            <section class="story">
+                <div class="container story__container">
+                    <div class="story__title">
+                        <h4>{{title}}</h4>
+                        <hr>
+                    </div>
+                    
+                    <div class="story__content">
+                        <div class="story__description">
+                            <div><h4>{{storyTitle}}</h4></div>
+                            <p>{{storyParagraph}}</p>
+                        </div>
+                        <div class="story__presents" >
+                            <div v-for="val of storyItems" 
+                                class="story__presents_item" 
+                                :class="[ val.class ]" 
+                                :style="val.style">
+                                <div>{{val.text}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="services">
+                <div class="container services__container">
+                    <div class="services__title">
+                        <h4>
+                            {{servTitle}}
+                            <hr>
+                        </h4>
+                        <p>{{servDesc}}</p>
+                        <a href="#" class="btn">{{servLink}}</a>
+                        
+                    </div>
+                    <ul class="services__list">
+                        <li class="services__item"  v-for="item in servList">
+                            <img :src="item.servLogo" alt="logo">
+                            <div> <strong class="services__list_heading">{{item.listHead}}</strong></div>
+                            <p class="services__list_description">{{item.listDesc}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="build" :style="buildBack">
+                <div class="container build__container">
+                    <div><h3 class="build__header">{{buildHead}}</h3></div>
+                    <a href="#" class="btn">{{buildBtn}}</a>
+                </div>
+            </section>
+
+            <section class="signup">
+                <div class="container signup__container">
+                    <h4 class="signup__header">{{signTitle}}</h4>
+                    <form action="">
+                        <input class="signup__input" type="email" name="" id="" value="test@youremail.com">
+                        <input class="btn" type="submit" value="SIGNUP">
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            
+            <div class="footer__nav">
+                <div class="container footer__container">
+                    <div class="footer__presents">
+                        <a href="" class="footer__plesents_link">{{presetsTitle}}</a>
+                        <a href="" class="footer__presents_logo"><img :src="footerLogo" alt=""></a>
+                        <p class="footer__presents-description">{{footerDesk}}</p>
+                    </div>
+                    <div class="footer__links">
+                        <a href="" class="link">{{footerLink}}</a>
+                        <ul class="footer__list">
+                            <li class="footer__list_item" v-for="items of navList">
+                                <ul class="footer__int_list">
+                                    <li class="footer__item" v-for="item of items"><a href="">{{item}}</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__contacts">
+                        <a href="" class="contact">{{contaktLink}}</a>
+                        <ul class="footer__contact-list">
+                            <li class="footer__contact_item" v-for="item of contacts">
+                                <a :href="item.info" class="footer__contact_link">{{item.text}}</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <div class="footer__social">
+                        <ul class="footer__social_list" >
+                            <li class="footer__social_item" v-for="item of socialStyle" :style="item.style">
+                                <a href="" class="footer__social_link" ></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="footer__copyright">	&copy; 2017 Konstruct Inc. Designed by Jane Kathryn Teo</div>
+
+        </footer>
+    </div>
+
+    
+    <script src="vue.js"></script>
+</body>
+</html>
